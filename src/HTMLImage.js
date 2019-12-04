@@ -34,14 +34,14 @@ export default class HTMLImage extends PureComponent {
     componentDidMount () {
         this.getImageSize();
         this.mounted = true;
-    }
-
+	}
+	
+    componentDidUpdate() {
+        this.getImageSize();
+	}
+	
     componentWillUnmount () {
         this.mounted = false;
-    }
-
-    componentWillReceiveProps (nextProps) {
-        this.getImageSize(nextProps);
     }
 
     getDimensionsFromStyle (style, height, width) {
