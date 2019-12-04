@@ -4,8 +4,6 @@
 
 If you need to render iframes pass a property `iframeView={YourViewHere}` or `iframeView={WebView}`
 
-## END-OF-NOTE
-
 An iOS/Android pure javascript react-native component that renders your HTML into 100% native views. It's made to be extremely customizable and easy to use and aims at being able to render anything you throw at it.
 
 > Based on the original work of [Thomas Beverley](https://github.com/Thomas101), props to him.
