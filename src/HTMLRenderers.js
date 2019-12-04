@@ -113,9 +113,9 @@ export function ul (htmlAttribs, children, convertedCSSStyles, passProps = {}) {
 export const ol = ul;
 
 export function iframe (htmlAttribs, children, convertedCSSStyles, passProps) {
-    const { iframeView, staticContentMaxWidth, tagsStyles, classesStyles } = passProps;
+    const { IFrameComponent, staticContentMaxWidth, tagsStyles, classesStyles } = passProps;
 
-    if(iframeView) {
+    if(IFrameComponent) {
         const tagStyleHeight = tagsStyles.iframe && tagsStyles.iframe.height;
         const tagStyleWidth = tagsStyles.iframe && tagsStyles.iframe.width;
 
@@ -140,7 +140,7 @@ export function iframe (htmlAttribs, children, convertedCSSStyles, passProps) {
         const source = htmlAttribs.srcdoc ? { html: htmlAttribs.srcdoc } : { uri: htmlAttribs.src };
 
         return (
-            <iframeView key={passProps.key} source={source} style={style} />
+            <IFrameComponent key={passProps.key} source={source} style={style} {...passProps}/>
         );
     }
 

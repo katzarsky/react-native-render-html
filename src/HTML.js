@@ -49,7 +49,7 @@ export default class HTML extends PureComponent {
         textSelectable: PropTypes.bool,
         renderersProps: PropTypes.object,
         allowFontScaling: PropTypes.bool,
-        iframeView: PropTypes.object // use HTML class itself or a webview
+        IFrameComponent: PropTypes.elementType // use HTML class itself or a webview or whatever you please
     }
 
     static defaultProps = {

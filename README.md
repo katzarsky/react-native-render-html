@@ -1,5 +1,5 @@
 ## NOTE: This is an effort to comply with RN 0.6x lifecycle methods and break dependency on react-native-webview for <iframe>
-If you need to render iframes pass a property `iframeView={YourViewHere}` or `iframeView={WebView}`
+If you need to render iframes pass a property `IFrameComponent={YourComponentNameHere}` or `iframeView={WebView}`
 
 # react-native-render-html
 
