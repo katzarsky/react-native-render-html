@@ -48,7 +48,8 @@ export default class HTML extends PureComponent {
         baseFontStyle: PropTypes.object.isRequired,
         textSelectable: PropTypes.bool,
         renderersProps: PropTypes.object,
-        allowFontScaling: PropTypes.bool
+        allowFontScaling: PropTypes.bool,
+        iframeView: PropTypes.object // use HTML class itself or a webview
     }
 
     static defaultProps = {
@@ -65,7 +66,8 @@ export default class HTML extends PureComponent {
         tagsStyles: {},
         classesStyles: {},
         textSelectable: false,
-        allowFontScaling: true
+        allowFontScaling: true,
+        iframeView: null
     }
 
     constructor (props) {
@@ -74,8 +76,8 @@ export default class HTML extends PureComponent {
         this.renderers = {
             ...HTMLRenderers,
             ...(this.props.renderers || {})
-		};
-		this.generateDefaultStyles();
+        };
+        this.generateDefaultStyles();
     }
 
     componentDidMount () {
@@ -83,12 +85,12 @@ export default class HTML extends PureComponent {
     }
 
     componentDidUpdate (prevProps, prevState) {
-		const { html, uri, renderers } = this.props;
-		this.generateDefaultStyles();
-		if (renderers !== prevProps.renderers) {
+        const { html, uri, renderers } = this.props;
+        this.generateDefaultStyles();
+        if (renderers !== prevProps.renderers) {
             this.renderers = { ...HTMLRenderers, ...(renderers || {}) };
         }
-		if (html !== prevProps.html || uri !== prevProps.uri) {
+        if (html !== prevProps.html || uri !== prevProps.uri) {
             // If the source changed, register the new HTML and parse it
             this.registerDOM();
         }
